@@ -14,7 +14,7 @@ function Search(props) {
             style={{ border: "Blue" }}
             type="text"
             onChange={props.onChangeHandler}
-            placeholder="Search a Track" />
+            placeholder="Start Typing " />
     </Paper>
       </Grid>
     

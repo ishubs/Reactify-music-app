@@ -6,7 +6,7 @@ import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import Search from "./components/search";
 import SpotifyWebApi from "spotify-web-api-js";
-
+import {Button} from "@material-ui/core";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -72,23 +72,39 @@ class App extends Component {
     //
     return (
       <div container className="App" >
+        <Grid style={{display:"flex",display: "block",
+
+width: "95%"}}>
+        <a href="https://github.com/ishubs" style={{ display: "flex",
+    flex: "1",
+    textDecoration:"none",
+    flexDirection: "column",
+    alignContent: "flex-end",
+    alignItems: "flex-end",
+}}><Button variant="contained"
+        color="secondary"
+        
+        >Developer: Shubham Giri </Button></a></Grid>
         <Typography variant="h1" style={{color:"white"}}>Reactify</Typography>
+
+        
+        
+        {this.state.loggedIn ? (
+          
         <Grid item style={{ display: "flex", justifyContent: "center",alignItems:"center" }}>
 
           <Search onChangeHandler={this.onChangeHandler} />
-          <Grid item>
-          
-          </Grid>
+          <h6>{this.state.searchTracks.length} songs found.</h6>
         </Grid>
         
-        <h6>{this.state.searchTracks.length} songs found.</h6>
-        {this.state.loggedIn ? (
-          ""
         ) : (
-          <a href="http://localhost:3000/app.html"> Login to Spotify </a>
+        <Grid>
+          <Typography style={{color:"white", marginBottom:"10px",marginTop:"50px"}} >Please Login to Spotify </Typography>
+          <a href="http://localhost:3000/app.html"><Button color="secondary" variant="contained" size="large"> Login to Spotify</Button> </a>
+          </Grid>
         )}
 
-        <Grid item container>
+        <Grid item container style={{marginTop:"50px"}}>
           {this.state.searchTracks.map((items) => {
             return (
               <Grid item xs={12} sm={4} key={items.uri}>
@@ -113,6 +129,7 @@ class App extends Component {
             );
           })}
         </Grid>
+        
       </div>
     );
   }
