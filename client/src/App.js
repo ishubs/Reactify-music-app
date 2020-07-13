@@ -85,7 +85,7 @@ class App extends Component {
         {this.state.loggedIn ? (
           ""
         ) : (
-          <a href="http://localhost:8888"> Login to Spotify </a>
+          <a href="http://localhost:3000/app.html"> Login to Spotify </a>
         )}
 
         <Grid item container>
